@@ -50,7 +50,7 @@ const defaultMenu = {
 ►❖xᴘ : %exp
 %readmore`.trimStart(),
   header: '▰▰▰「 *%category* 」▰▰▰',
-  body: '❒➥ *%cmd* *%islimit* *%isPremium*',
+  body: '❒➥ *%cmd* %islimit %isPremium',
   footer: '\n',
   after: `ʙʏ
 *%npmname* | %version
@@ -157,13 +157,12 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendButton(m.chat, text.trim(), '𝐑-𝐁𝐎𝐓 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏', null, ['Owner', '.owner'], m)
-    /*conn.sendHydrated(m.chat, text.trim(), 'Ⓟ premium | Ⓛ limit', null, 'https://aiinne.github.io/', 'Website', '', '', [
+    /*conn.sendButton(m.chat, text.trim(), '𝐑-𝐁𝐎𝐓 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏', null, [['DONASI', '.donasi'],['OWNER', '.owner']], m)*/
+    conn.sendHydrated(m.chat, text.trim(), `Ⓟ premium | Ⓛ limit\nR-BOT WHATSAPP`, null, 'https://youtube.com/c/RamaGans', '▶️', '', '', [
       ['Donate', '/donasi'],
-      ['Sewa Bot', '/sewa'],
       ['Owner', '/owner']
-    ], m)*/
-    /*let url = `https://telegra.ph/file/ab1df70dfd5c2bac64da1.jpg`.trim()
+    ], m)
+    let url = `https://telegra.ph/file/ba5ebc2ac1478114cdbcc.jpg`.trim()
     let res = await fetch(url)
     let buffer = await res.buffer()
     let message = await prepareWAMessageMedia({ image: buffer }, { upload: conn.waUploadToServer })
@@ -172,22 +171,17 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
                         hydratedTemplate: {
                             imageMessage: message.imageMessage,
                             hydratedContentText: text.trim(),
-                            hydratedFooterText:'Ⓟ premium | Ⓛ limit',
+                            hydratedFooterText:`Ⓟ premium | Ⓛ limit\nR-BOT WHATSAPP`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'Website',
-                                    url: 'https://Ainebot.github.io/'
+                                    displayText: '▶️',
+                                    url: 'https://youtube.com/c/RamaGans'
                                 }
                             }, {
                                 quickReplyButton: {
                                     displayText: 'Donasi',
                                     id: '/donasi'
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Sewa',
-                                    id: '/sewa'
-                                }  
+                                }   
                             }, {
                                 quickReplyButton: {
                                     displayText: 'Owner',
@@ -197,7 +191,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
                         }
                     }
                 }), { userJid: m.chat, quoted: m })
-                conn.relayMessage(m.chat, template.message, { messageId: template.key.id })*/
+                conn.relayMessage(m.chat, template.message, { messageId: template.key.id })
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
