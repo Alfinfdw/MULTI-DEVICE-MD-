@@ -157,9 +157,10 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    /*conn.sendButton(m.chat, text.trim(), '𝐑-𝐁𝐎𝐓 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏', null, [['DONASI', '.donasi'],['OWNER', '.owner']], m)*/
-    /*conn.sendHydrated(m.chat, text.trim(), `Ⓟ premium | Ⓛ limit\nR-BOT WHATSAPP`, null, 'https://youtube.com/c/RamaGans', '▶️', '', '', [
+    /*conn.sendButton(m.chat, text.trim(), 'Made with ♡ by Aine', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)*/
+    /*conn.sendHydrated(m.chat, text.trim(), 'Ⓟ premium | Ⓛ limit', null, 'https://aiinne.github.io/', 'Website', '', '', [
       ['Donate', '/donasi'],
+      ['Sewa Bot', '/sewa'],
       ['Owner', '/owner']
     ], m)*/
     let url = `https://telegra.ph/file/ba5ebc2ac1478114cdbcc.jpg`.trim()
@@ -172,16 +173,11 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
                             imageMessage: message.imageMessage,
                             hydratedContentText: text.trim(),
                             hydratedFooterText:'Ⓟ premium | Ⓛ limit',
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: '▶️',
-                                    url: 'https://youtube.com/c/RamaGans'
-                                }
-                            }, {
+                            hydratedButtons: [{                       
                                 quickReplyButton: {
                                     displayText: 'Donasi',
                                     id: '/donasi'
-                                }   
+                                }                             
                             }, {
                                 quickReplyButton: {
                                     displayText: 'Owner',
