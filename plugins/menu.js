@@ -5,54 +5,54 @@ let fetch = require('node-fetch')
 let moment = require('moment-timezone')
 let levelling = require('../lib/levelling')
 let tags = {
-  'rpgabsen': 'Rpg-Absen',
-  'rpg': 'Rpg',
-  'game': 'Game',
-  'xp': 'Exp, Limit & Pay',
-  'sticker': 'Sticker',
-  'main': 'Main',
-  'kerang': 'Kerang Ajaib',
-  'quotes': 'Quotes',
-  'admin': 'Admin',
-  'group': 'Group',
-  'internet': 'Internet',
-  'anonymous': 'Anonymous Chat',
-  'downloader': 'Downloader',
-  'berita': 'Berita',
-  'tools': 'Tools',
-  'fun': 'Fun',
-  'database': 'Database', 
-  'vote': 'Voting',
-  'absen': 'Absen',
-  'catatan': 'Catatan',
-  'jadian': 'Jadian',
-  'islami': 'Islami',
-  'owner': 'Owner',
-  'advanced': 'Advanced',
-  'info': 'Info',
-  'audio': 'Audio',
-  'maker': 'Maker',
+  'rpgabsen': 'ʀᴘɢ-ᴀʙsᴇɴ',
+  'rpg': 'ʀᴘɢ',
+  'game': 'ɢᴀᴍᴇ',
+  'xp': 'ᴇxᴘ, ʟɪᴍɪᴛ & ᴘᴀʏ',
+  'sticker': 'sᴛɪᴄᴋᴇʀ',
+  'main': 'ᴍᴀɪɴ',
+  'kerang': 'ᴋᴇʀᴀɴɢ-ᴀᴊᴀɪʙ',
+  'quotes': 'ǫᴜᴏᴛᴇs',
+  'admin': 'ᴀᴅᴍɪɴ',
+  'group': 'ɢʀᴏᴜᴘ',
+  'internet': 'ɪɴᴛᴇʀɴᴇᴛ',
+  'anonymous': 'ᴀɴᴏɴʏᴍᴏᴜs ᴄʜᴀᴛ',
+  'downloader': 'ᴅᴏᴡɴʟᴏᴀᴅᴇʀ',
+  'berita': 'ʙᴇʀɪᴛᴀ',
+  'tools': 'ᴛᴏᴏʟs',
+  'fun': 'ғᴜɴ',
+  'database': 'ᴅᴀᴛᴀʙᴀsᴇ', 
+  'vote': 'ᴠᴏᴛɪɴɢ',
+  'absen': 'ᴀʙsᴇɴ',
+  'catatan': 'ᴄᴀᴛᴀᴛᴀɴ',
+  'jadian': 'ᴊᴀᴅɪᴀɴ',
+  'islami': 'ɪsʟᴀᴍɪ',
+  'owner': 'ᴏᴡɴᴇʀ',
+  'advanced': 'ᴀᴅᴠᴀɴᴄᴇ',
+  'info': 'ɪɴғᴏ',
+  'audio': 'ᴀᴜᴅɪᴏ',
+  'maker': 'ᴍᴀᴋᴇʀ',
 }
 const defaultMenu = {
-  before: `
-Hai, %ucapan %name! 👋
-  
-*Waktu:* 
-%wib WIB
-%wita WITA
-%wit WIT
-*Hari:* %week
-*Tanggal:* %date
-*Uptime:* %uptime (%muptime)
+  before: `ʜᴀɪ, %ucapan %name! 👋
+ ʙ
+▬▬▬「 ᴡᴀᴋᴛᴜ 」▬▬▬
+%wib ᴡɪʙ
+%wita ᴡɪᴛᴀ
+%wit ᴡɪᴛ
+►❖ʜᴀʀɪ : %week
+►❖ᴛᴀɴɢɢᴀʟ : %date
+►❖ᴜᴘᴛɪᴍᴇ : %uptime (%muptime)
 
-*Limit:* %limit
-*Level:* %level
-*XP:* %exp
+▬▬「 ʏᴏᴜʀ sᴛᴀᴛs 」▬▬
+►❖ʟɪᴍɪᴛ : %limit
+►❖ʟᴇᴠᴇʟ : %level
+►❖xᴘ : %exp
 %readmore`.trimStart(),
-  header: ' *%category*',
-  body: ' • %cmd %islimit %isPremium',
+  header: '▰▰▰「 *%category* 」▰▰▰',
+  body: '❒➥ *%cmd* *%islimit* *%isPremium*',
   footer: '\n',
-  after: `*Made by ♡*
+  after: `ʙʏ
 *%npmname* | %version
 ${'```%npmdesc```'}
 `,
@@ -157,7 +157,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendButton(m.chat, text.trim(), 'Made with ♡ by Aine', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)
+    conn.sendButton(m.chat, text.trim(), '𝐑-𝐁𝐎𝐓 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏', null, ['Owner', '.owner'], m)
     /*conn.sendHydrated(m.chat, text.trim(), 'Ⓟ premium | Ⓛ limit', null, 'https://aiinne.github.io/', 'Website', '', '', [
       ['Donate', '/donasi'],
       ['Sewa Bot', '/sewa'],
