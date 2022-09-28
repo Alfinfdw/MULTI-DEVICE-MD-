@@ -158,11 +158,11 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     /*conn.sendButton(m.chat, text.trim(), '𝐑-𝐁𝐎𝐓 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏', null, [['DONASI', '.donasi'],['OWNER', '.owner']], m)*/
-    conn.sendHydrated(m.chat, text.trim(), `Ⓟ premium | Ⓛ limit\nR-BOT WHATSAPP`, null, 'https://youtube.com/c/RamaGans', '▶️', '', '', [
+    /*conn.sendHydrated(m.chat, text.trim(), `Ⓟ premium | Ⓛ limit\nR-BOT WHATSAPP`, null, 'https://youtube.com/c/RamaGans', '▶️', '', '', [
       ['Donate', '/donasi'],
       ['Owner', '/owner']
-    ], m)
-    /*let url = `https://telegra.ph/file/ba5ebc2ac1478114cdbcc.jpg`.trim()
+    ], m)*/
+    let url = `https://telegra.ph/file/ba5ebc2ac1478114cdbcc.jpg`.trim()
     let res = await fetch(url)
     let buffer = await res.buffer()
     let message = await prepareWAMessageMedia({ image: buffer }, { upload: conn.waUploadToServer })
@@ -171,7 +171,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
                         hydratedTemplate: {
                             imageMessage: message.imageMessage,
                             hydratedContentText: text.trim(),
-                            hydratedFooterText:`Ⓟ premium | Ⓛ limit\nR-BOT WHATSAPP`,
+                            hydratedFooterText:'Ⓟ premium | Ⓛ limit',
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: '▶️',
@@ -191,7 +191,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
                         }
                     }
                 }), { userJid: m.chat, quoted: m })
-                conn.relayMessage(m.chat, template.message, { messageId: template.key.id })*/
+                conn.relayMessage(m.chat, template.message, { messageId: template.key.id })
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
