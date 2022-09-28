@@ -158,10 +158,10 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     /*conn.sendButton(m.chat, text.trim(), '𝐑-𝐁𝐎𝐓 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏', null, [['DONASI', '.donasi'],['OWNER', '.owner']], m)*/
-    conn.sendHydrated(m.chat, text.trim(), `Ⓟ premium | Ⓛ limit\nR-BOT WHATSAPP`, null, 'https://youtube.com/c/RamaGans', '▶️', '', '', [
+    /*conn.sendHydrated(m.chat, text.trim(), `Ⓟ premium | Ⓛ limit\nR-BOT WHATSAPP`, null, 'https://youtube.com/c/RamaGans', '▶️', '', '', [
       ['Donate', '/donasi'],
       ['Owner', '/owner']
-    ], m)
+    ], m)*/
     let url = `https://telegra.ph/file/ba5ebc2ac1478114cdbcc.jpg`.trim()
     let res = await fetch(url)
     let buffer = await res.buffer()
