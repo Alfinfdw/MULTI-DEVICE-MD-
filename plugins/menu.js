@@ -4,6 +4,7 @@ let path = require('path')
 let fetch = require('node-fetch')
 let moment = require('moment-timezone')
 let levelling = require('../lib/levelling')
+const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('../lib/myfunc')
 let tags = {
   'rpgabsen': 'ʀᴘɢ-ᴀʙsᴇɴ',
   'rpg': 'ʀᴘɢ',
@@ -157,13 +158,76 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    /*conn.sendButton(m.chat, text.trim(), 'Made with ♡ by Aine', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)*/
+  /*let resize = await conn.resize('./anu.jpg', 370, 159)
+        return conn.sendButton(m.chat, {
+            document: Buffer.alloc(10),
+            mimetype: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+            fileName: 'R-BOT WHATSAPP',
+            jpegThumbnail: resize,
+            pageCount: 999999999,
+            fileLength: 152676504600228322940124967031205376,
+            caption: text.trim(),
+            footer: `BOT`
+            },          
+            [{                 
+            quickReplyButton: {
+            displayText: 'Owner',
+            id: '/owner'
+             }
+            }])*/
+function pickRandom(list) {
+return list[Math.floor(Math.random() * list.length)]
+}            
+try {
+ppuser = await conn.profilePictureUrl(m.sender, 'image')
+} catch (err) {
+ppuser = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
+}
+let url = `https://telegra.ph/file/ab1df70dfd5c2bac64da1.jpg`.trim()
+    let res = await fetch(url)
+    let buffer = await res.buffer()
+const pporang = await getBuffer(ppuser)       
+let fgclink = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: pporang, surface: 200, message: `RAMAGANTENG😎`, orderTitle: 'memek', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}    
+  let link = `https://wa.me/message/4DCK3UGKERTGC1`
+let buttonsh = [
+{buttonId: `/owner`, buttonText: {displayText: 'OWNER'}, type: 1}
+]
+let buttonMessage = {
+document: fs.readFileSync('./tes.xlsx'),
+mimetype: 'application/pdf',
+jpegThumbnail:buffer,
+fileName: `WA-BOT`,
+fileLength: 99999999999999,
+caption: text.trim(),
+footer: `R-BOT BY RAMA☘️`,
+buttons: buttonsh,
+headerType: 4,
+contextInfo:{externalAdReply:{
+title: ``,
+body: `WELCOME TO MY BOT`,
+mediaType:2,
+thumbnail: pporang,
+sourceUrl: link,
+mediaUrl: link,
+}}
+}
+conn.sendMessage(m.chat, buttonMessage, {quoted:fgclink})      
+ajg = fs.readFileSync('./mp3/pe.mp3')
+fakyou = fs.readFileSync('./mp3/p.mp3')
+anu1 = fs.readFileSync('./mp3/anu1.mp3')
+anu2 = fs.readFileSync('./mp3/anu2.mp3')
+anu3 = fs.readFileSync('./mp3/anu3.mp3')
+anu4 = fs.readFileSync('./mp3/anu4.mp3')
+ nyong = pickRandom([ajg, fakyou, anu1, anu2, anu3, anu4])
+conn.sendMessage(m.chat, {audio: nyong, mimetype: 'audio/mpeg', ptt:true }, {quoted:m})            
+/*            
+    conn.sendButton(m.chat, text.trim(), 'Made with ♡ by Aine', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)
     /*conn.sendHydrated(m.chat, text.trim(), 'Ⓟ premium | Ⓛ limit', null, 'https://aiinne.github.io/', 'Website', '', '', [
       ['Donate', '/donasi'],
       ['Sewa Bot', '/sewa'],
       ['Owner', '/owner']
     ], m)*/
-    let url = `https://telegra.ph/file/ba5ebc2ac1478114cdbcc.jpg`.trim()
+    /*let url = `https://telegra.ph/file/ab1df70dfd5c2bac64da1.jpg`.trim()
     let res = await fetch(url)
     let buffer = await res.buffer()
     let message = await prepareWAMessageMedia({ image: buffer }, { upload: conn.waUploadToServer })
@@ -173,11 +237,21 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
                             imageMessage: message.imageMessage,
                             hydratedContentText: text.trim(),
                             hydratedFooterText:'Ⓟ premium | Ⓛ limit',
-                            hydratedButtons: [{                       
+                            hydratedButtons: [{
+                                urlButton: {
+                                    displayText: 'Website',
+                                    url: 'https://Ainebot.github.io/'
+                                }
+                            }, {
                                 quickReplyButton: {
                                     displayText: 'Donasi',
                                     id: '/donasi'
-                                }                             
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Sewa',
+                                    id: '/sewa'
+                                }  
                             }, {
                                 quickReplyButton: {
                                     displayText: 'Owner',
@@ -187,7 +261,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
                         }
                     }
                 }), { userJid: m.chat, quoted: m })
-                conn.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                conn.relayMessage(m.chat, template.message, { messageId: template.key.id })*/
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
