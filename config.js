@@ -2,13 +2,13 @@ let fs = require('fs')
 let chalk = require('chalk')
 
 owner = [
-  ['6282142108243'],
-  ['6282142108243'],
-  ['6282142108243', 'Owner', true]
+  ['4915256954581'],
+  ['4915256954581'],
+  ['6285852939370', 'Owner', true]
   // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
-mods = ['6282142108243'] // Want some help?
-prems = ['6282142108243'] // Premium user has unlimited limit
+mods = ['4915256954581'] // Want some help?
+prems = ['4915256954581'] // Premium user has unlimited limit
 APIs = { // API Prefix
   // name: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com',
@@ -40,7 +40,7 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 const spack = fs.readFileSync("lib/exif.json")
 const stickerpack = JSON.parse(spack)
 if (stickerpack.spackname == '') {
-  var sticker_name = 'RAMA (.r76) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
+  var sticker_name = 'Niluj (.r76) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
   var sticker_author = '\n\n'
 } else {
   var sticker_name = stickerpack.spackname
@@ -58,7 +58,7 @@ fs.watchFile(file_exif, () => {
 // Sticker WM
 packname = sticker_name
 author = sticker_author
-wm = 'R-BOT'
+wm = 'Niluh'
 
 Intervalmsg = 1800 //detik
 
